@@ -1,0 +1,32 @@
+
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+ul {
+    list-style: none;
+}
+
+.table-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.table-list li {
+    border: 1px solid red;
+    text-align: center;
+    padding: 25px 0;
+}
+
+#shaffuleBtn {
+    display: block;
+    margin: 0 auto;
+}

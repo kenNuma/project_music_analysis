@@ -1,0 +1,180 @@
+/* 隠しコマンド */
+header {
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    position: fixed;
+    top: 30;
+    left: 30;
+}
+
+header a {
+    text-decoration: none;
+    display: block;
+    color: white;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* ---------- 全体 ---------- */
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: "Segoe UI", sans-serif;
+    background: #f5f6fa;
+}
+
+main {
+    margin: 30px 20px;
+}
+
+/* ---------- タイトル ---------- */
+h2 {
+    background: linear-gradient(135deg, #333, #111);
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 8px;
+    letter-spacing: 2px;
+}
+
+/* ---------- 入力フォーム ---------- */
+.input-form {
+    background: #fff;
+    padding: 20px;
+    margin-top: 25px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.input-form input[type="file"] {
+    margin-right: 15px;
+}
+
+#analyzeBtn,
+#playStopBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+    background: #007bff;
+    color: #fff;
+}
+
+#playStopBtn {
+    margin-left: 10px;
+}
+
+#analyzeBtn:hover,
+#playStopBtn:hover {
+    background: #005fcc;
+}
+
+/* ---------- 波形表示エリア ---------- */
+#waveform {
+    background: #ddd;
+    height: 200px;
+    border-radius: 12px;
+    margin-top: 25px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* ---------- 読み込み中(アニメーション込み) ---------- */
+
+#loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.loading-box {
+    display: flex;
+    align-items: center;     /* 垂直方向の中央揃え */
+    justify-content: center; /* 水平方向の中央揃え */
+    gap: 15px;               /* アニメと文字の間隔 */
+    width: 100%;
+    margin-top: 30px;
+}
+
+.loading-bars {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.loading-bars span {
+    width: 6px;
+    height: 25px;
+    background: #007bff;
+    display: inline-block;
+    border-radius: 4px;
+    animation: loading-wave 1s infinite ease-in-out;
+}
+
+/* バーのタイミングずらし */
+.loading-bars span:nth-child(1) { animation-delay: 0s; }
+.loading-bars span:nth-child(2) { animation-delay: 0.1s; }
+.loading-bars span:nth-child(3) { animation-delay: 0.2s; }
+.loading-bars span:nth-child(4) { animation-delay: 0.3s; }
+.loading-bars span:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes loading-wave {
+    0%, 40%, 100% {
+        transform: scaleY(0.3);
+    }
+    20% {
+        transform: scaleY(1);
+    }
+}
+
+.loading-box p {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* ---------- 結果エリア ---------- */
+.flex-div {
+    margin-top: 30px;
+    display: flex;
+    gap: 25px;
+}
+
+#results,
+#assess-img {
+    background: #fff;
+    width: 50%;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#results li {
+    font-size: 18px;
+    margin-top: 18px;
+    padding: 10px;
+    background: #fafafa;
+    border-radius: 6px;
+    border-left: 4px solid #007bff;
+}
+
+/* ---------- 隠しクラス ---------- */
+.analyze-none {
+    display: none;
+}
+.none {
+    display: none;
+}
+
+/* ---------- 画像 ---------- */
+img {
+    width: 100%;
+    border-radius: 12px;
+}

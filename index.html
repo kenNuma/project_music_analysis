@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>音声分析アプリ</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+</head>
+
+<body>
+    <header>
+        <a class="command" href="html/shuffle.html">a</a>
+    </header>
+    <main>
+        <h2>🎼音声分析アプリ🎼</h2>
+        <div class="input-form">
+            <input type="file" id="audioFile" accept=".wav">
+            <button id="analyzeBtn">解析開始</button>
+            <button id="playStopBtn" class="none">▶ 再生</button>
+        </div>
+
+        <div id="waveform"></div>
+        <div id="loading" class="loading-box" style="display:none;">
+            <div class="loading-bars">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p>解析中...</p>
+        </div>
+        <div class="flex-div">
+            <ul id="results" class="analyze-none">
+                <li id="name"></li>
+                <li id="bpm"></li>
+                <li id="nagasa"></li>
+                <li id="sample"></li>
+                <li id="piack"></li>
+                <li id="avg-amp"></li>
+            </ul>
+            <div id="assess-img" class="analyze-none">
+                <img id="select-img" src="">
+            </div>
+        </div>
+        <script defer src="js/main.js"></script>
+    </main>
+</body>
+
+</html>
