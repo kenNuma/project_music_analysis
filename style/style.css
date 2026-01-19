@@ -1,22 +1,3 @@
-/* 隠しコマンド */
-header {
-    width: 15px;
-    height: 15px;
-    background-color: black;
-    position: fixed;
-    top: 30;
-    left: 30;
-}
-
-header a {
-    text-decoration: none;
-    display: block;
-    color: white;
-    width: 15px;
-    height: 15px;
-    background-color: white;
-    cursor: pointer;
-}
 
 /* ---------- 全体 ---------- */
 body {
@@ -28,6 +9,7 @@ body {
 
 main {
     margin: 30px 20px;
+    background-color: rgb(117, 198, 219);
 }
 
 /* ---------- タイトル ---------- */
@@ -101,6 +83,7 @@ h2 {
     gap: 15px;               /* アニメと文字の間隔 */
     width: 100%;
     margin-top: 30px;
+    border: white 3px solid;
 }
 
 .loading-bars {
@@ -112,7 +95,7 @@ h2 {
 .loading-bars span {
     width: 6px;
     height: 25px;
-    background: #007bff;
+    background: white;/*#007bff*/
     display: inline-block;
     border-radius: 4px;
     animation: loading-wave 1s infinite ease-in-out;
@@ -137,6 +120,7 @@ h2 {
 .loading-box p {
     font-size: 20px;
     color: #333;
+    color: white;
     font-weight: bold;
 }
 

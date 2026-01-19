@@ -37,7 +37,10 @@ document.getElementById('audioFile').addEventListener('change', function(e){
 //解析ボタン押下時の処理
 document.getElementById('analyzeBtn').addEventListener('click', async function(){
     //音声の選択がない場合、即時 return
-    if(!music_file){ alert("ファイルを選択してください"); return; }
+    if(!music_file){ 
+        alert("ファイルを選択してください");
+        return;
+    }
 
     // 解析中表示取得
     const loader = document.getElementById("loading");
@@ -46,10 +49,9 @@ document.getElementById('analyzeBtn').addEventListener('click', async function()
     // 音声ファイルをAPIに受け渡すデータとして保持
     const formData = new FormData();
     formData.append("audio", music_file);
-
     try {
         // API通信(main.py)
-        const res = await fetch('http://127.0.0.1:8000/main', {
+        const res = await fetch(`http://127.0.0.1:8000/analyze`, {
             method: 'POST',
             body: formData
         });
@@ -69,14 +71,14 @@ document.getElementById('analyzeBtn').addEventListener('click', async function()
         document.getElementById("name").innerText = `🎵 ファイル名: ${data.fileName}`;
         document.getElementById("bpm").innerText = `🥁 BPM: ${Math.round(data.bpm)}`;
         document.getElementById("nagasa").innerText = `⏳ 長さ: ${Math.round(data.playTime)} 秒`;
-        document.getElementById("sample").innerText = `📊 サンプルレート: ${data.smpleLate}`;
+        document.getElementById("sample").innerText = `📊 サンプルレート: ${data.sampleRate}`;
         document.getElementById("piack").innerText = `🔊 ピークカウント: ${data.peakCount}`;
         document.getElementById("avg-amp").innerText = `⚡ avg_amplitude: ${data.avg_amplitude}`;
 
         //評価イメージパス取得
         img_element = document.getElementById("select-img")
-        if(img_element && data.image_pass){
-            img_element.src = data.image_pass;
+        if(img_element && data.image_path){
+            img_element.src = data.image_path;
         }
 
     } catch(err) {
